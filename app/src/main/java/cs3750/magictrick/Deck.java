@@ -28,10 +28,8 @@ public class Deck {
 
     }
 
-    public void reset(){
-        cards.clear();
-        addDeck();
-        shuffle();
+    public void random21(){
+
     }
 
     private void addDeck(){
