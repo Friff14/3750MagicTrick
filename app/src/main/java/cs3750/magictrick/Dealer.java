@@ -9,12 +9,10 @@ public class Dealer {
     private int dealNumber;
     private Stack<Card> pickedUpCards;
     private Deck deck;
-    private Board board;
 
     public Dealer(){
         dealNumber = 0;
         pickedUpCards = new Stack<>();
-        board = new Board();
         deck = new Deck();
         deck.shuffle();
 
@@ -24,7 +22,7 @@ public class Dealer {
         }
     }
 
-    public Column[] deal()
+    public void deal(Board board)
     {
         
         int i = 0;
@@ -39,11 +37,41 @@ public class Dealer {
             }
         }
     }
-    public void revealCard(){
 
+    public Card revealCard(Board board)
+    {
+        return board.getColumn(2)[4];
     }
-    public void pickUpCard(){
-        Player player = new Player();
-        Board
+
+    //Picks up the cards in board in the correct order for the trick
+    public void pickUpCards(Board board, int columnSelected)
+    {
+        switch (columnSelected)
+        {
+            case 1:
+                pickUpColumn(board,2);
+                pickUpColumn(board,1);
+                pickUpColumn(board,3);
+                break;
+            case 2:
+                pickUpColumn(board,1);
+                pickUpColumn(board,2);
+                pickUpColumn(board,3);
+                break;
+            case 3:
+                pickUpColumn(board,1);
+                pickUpColumn(board,3);
+                pickUpColumn(board,2);
+                break;
+        }
+    }
+
+    // Picks up the column indicated and adds the cards to pickedUpCards.
+    private void pickUpColumn(Board board, int id)
+    {
+        for(Card card: board.getColumn(id))
+        {
+            pickedUpCards.add(card);
+        }
     }
 }

@@ -27,7 +27,7 @@ public class Deck {
 
     }
 
-    public void random21(){
+    public Card[] random21(){
 
     }
 
