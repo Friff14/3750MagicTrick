@@ -3,7 +3,6 @@ package cs3750.magictrick;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-import java.util.Stack;
 
 /**
  * Created by sethalumps on 9/14/2016.
@@ -36,63 +35,63 @@ public class Deck {
         //Create and load in the deck
 
         //Hearts
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-
-        //Diamonds
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-
-        //Clubs
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-        cards.add( new Card();
-
-        //Spades
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
-        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//
+//        //Diamonds
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//
+//        //Clubs
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//        cards.add( new Card();
+//
+//        //Spades
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
+//        cards.add( new Card());
     }
 }
