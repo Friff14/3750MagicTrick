@@ -5,8 +5,16 @@ package cs3750.magictrick;
  */
 public class Column {
     private int id;
+    Card[] cards;
+    int nextEmptySpot;
 
-    public void addCard(){
+    public  Column(){
+        cards = new Card[7];
+        nextEmptySpot = 0;
+    }
 
+    public void addCard(Card card){
+        cards[nextEmptySpot] = card;
+        nextEmptySpot++;
     }
 }

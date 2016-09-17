@@ -5,10 +5,15 @@ package cs3750.magictrick;
  */
 public class Board {
 
+    Column[] columns = new Column[3];
+
     public void addToColumn(int columnID, Card card) {
 
+        columns[columnID].addCard(card);
     }
+
     public Card[] getColumn(int columnID){
 
+        return columns[columnID].cards;
     }
 }
