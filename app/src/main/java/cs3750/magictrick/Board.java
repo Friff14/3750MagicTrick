@@ -8,7 +8,10 @@ public class Board {
     Column[] columns;
 
     public Board(){
-       columns = new Column[3];
+        columns = new Column[3];
+        columns[0] = new Column();
+        columns[1] = new Column();
+        columns[2] = new Column();
     }
 
     public void addToColumn(int columnID, Card card) {
