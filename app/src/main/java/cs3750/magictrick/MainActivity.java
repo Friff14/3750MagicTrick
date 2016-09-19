@@ -1,3 +1,6 @@
+/*
+ * MainActivity is the Player
+ */
 package cs3750.magictrick;
 
 import android.os.Bundle;
@@ -6,6 +9,8 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView[] imageViews;
+    protected boolean hasSelectedCard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,5 +61,26 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 14; i < 21; i++){
             imageViews[i].setImageResource(imageId[i]);
         }
+
+        //don't have a good spot for this as of this moment.
+        hasSelectedCard = false;
+    } // onCreate
+
+    /**
+     * Indicates a column
+     */
+    public int indicateColumn() {
+
+        //this will get replaced by the UI that actually indicates the column choice
+        int playerChoice = 0;
+
+        return playerChoice;
+    }
+
+    /**
+     * Setter for hasSelectedCard. Indicates that a card has been selected
+     */
+    public void pickCard() {
+        hasSelectedCard = true;
     }
 }
