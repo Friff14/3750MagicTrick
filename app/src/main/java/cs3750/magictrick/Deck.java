@@ -1,97 +1,56 @@
 package cs3750.magictrick;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Created by sethalumps on 9/14/2016.
  */
 public class Deck {
-    private ArrayList<Card> cards;
+    private ArrayList<Card> deck;
 
-    public Deck(){
-        cards = new ArrayList<>();
-
-        //Minimum of two decks
-        addDeck();
-        addDeck();
-
-        shuffle();
+    public Deck() {
+        deck = addDeck();
     }
 
-    public void shuffle(){
+    public void shuffle() {
         //Shuffles the available cards
         long seed = System.nanoTime();
-        Collections.shuffle(cards, new Random(seed));
+        Collections.shuffle(deck, new Random(seed));
 
     }
 
-    public Card[] random21(){
-
+    public ArrayList<Card> random21() {
+        deck = addDeck();
+        shuffle();
+        ArrayList<Card> listOfCards = new ArrayList<>();
+        for(int i = 0; i < 21; i++){
+            listOfCards.add(deck.remove(0));
+        }
+        return listOfCards;
     }
 
-    private void addDeck(){
+    private ArrayList<Card> addDeck() {
         //Create and load in the deck
-
-        //Hearts
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//
-//        //Diamonds
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//
-//        //Clubs
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//        cards.add( new Card();
-//
-//        //Spades
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
-//        cards.add( new Card());
+        ArrayList<Card> deckList = new ArrayList<Card>();
+        List faces = new ArrayList<>();
+        faces.add(Arrays.asList(
+                "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
+        ));
+        List suits = new ArrayList<>();
+        suits.add(Arrays.asList("Hearts", "Spades", "Diamonds", "Clubs"));
+        for (int f = 0; f < faces.size(); f++) {
+            String face = (String) faces.get(f);
+            for (int s = 0; s < suits.size(); s++) {
+                String suit = (String) suits.get(s);
+                deckList.add(new Card(face, suit));
+            }
+        }
+        return deckList;
     }
 }
