@@ -5,7 +5,11 @@ package cs3750.magictrick;
  */
 public class Board {
 
-    Column[] columns = new Column[3];
+    Column[] columns;
+
+    public Board(){
+       columns = new Column[3];
+    }
 
     public void addToColumn(int columnID, Card card) {
 

@@ -1,9 +1,7 @@
 package cs3750.magictrick;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -23,12 +21,16 @@ public class Deck {
 
     }
 
+    public ArrayList<Card> getDeck(){
+        return deck;
+    }
+
     public ArrayList<Card> random21() {
-        deck = addDeck();
+        //deck = addDeck();
         shuffle();
         ArrayList<Card> listOfCards = new ArrayList<>();
         for(int i = 0; i < 21; i++){
-            listOfCards.add(deck.remove(0));
+            listOfCards.add(deck.get(i));
         }
         return listOfCards;
     }

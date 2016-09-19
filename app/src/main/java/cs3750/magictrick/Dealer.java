@@ -1,5 +1,6 @@
 package cs3750.magictrick;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -14,9 +15,9 @@ public class Dealer {
         dealNumber = 0;
         pickedUpCards = new Stack<>();
         deck = new Deck();
-        deck.shuffle();
-
-        for (Card card : deck.random21())
+        //deck.shuffle();
+        ArrayList<Card> c = deck.random21();
+        for (Card card : c)
         {
             pickedUpCards.push(card);
         }
