@@ -101,4 +101,8 @@ public class Card {
             putCards();
         }
     }
+
+    public int getCardImage(){
+        return (int) cardImages.get(getSuit()).get(getFace());
+    }
 }
