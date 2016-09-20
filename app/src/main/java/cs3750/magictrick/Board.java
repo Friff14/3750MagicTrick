@@ -23,5 +23,8 @@ public class Board {
 
         return columns[columnID].cards;
     }
-
+    public void resetBoard(){
+        for(int i = 0; i < 3; i++)
+            columns[i].resetNextEmptySpot();
+    }
 }

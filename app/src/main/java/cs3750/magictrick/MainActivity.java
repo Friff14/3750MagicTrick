@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-
+        board.resetBoard();
         switch (view.getId()){
             case R.id.columnOne :
                 dealer.pickUpCards(board,0);
