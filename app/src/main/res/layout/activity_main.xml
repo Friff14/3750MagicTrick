@@ -13,13 +13,13 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="150dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/linearLayout"
-        android:layout_centerVertical="true"
+        android:contextClickable="false"
+        android:layout_alignTop="@+id/linearLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:contextClickable="false"
-        android:layout_marginTop="5dp">
+        android:gravity="center">
 
         <ImageView
             android:layout_width="150dp"
@@ -62,15 +62,26 @@
             android:layout_height="100dp"
             android:id="@+id/imageView7"
             android:layout_marginBottom="5dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Column One"
+            android:id="@+id/columnOne"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="150dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout2"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="150dp"
@@ -113,16 +124,26 @@
             android:layout_height="100dp"
             android:id="@+id/imageView14"
             android:layout_marginBottom="5dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Column Two"
+            android:id="@+id/columnTwo"
+            android:layout_alignTop="@+id/columnOne"
+            android:layout_centerHorizontal="true" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="150dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingTop="5dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/linearLayout2"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout3"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="150dp"
@@ -166,5 +187,16 @@
             android:id="@+id/imageView21"
             android:layout_marginBottom="5dp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Column Three"
+            android:id="@+id/columnThree"
+            android:layout_alignTop="@+id/columnTwo"
+            android:layout_toLeftOf="@+id/linearLayout3"
+            android:layout_toStartOf="@+id/linearLayout3"
+            android:clickable="true" />
+
     </LinearLayout>
+
 </RelativeLayout>

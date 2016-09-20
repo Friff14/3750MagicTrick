@@ -5,14 +5,18 @@ package cs3750.magictrick;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView[][] imageViews;
     protected boolean hasSelectedCard;
     private Dealer dealer = new Dealer();
     private Board board = new Board();
+    private Button columnOne;
+    private Button columnTwo;
+    private Button columnThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,13 @@ public class MainActivity extends AppCompatActivity {
              (ImageView)findViewById(R.id.imageView19),(ImageView)findViewById(R.id.imageView20),
              (ImageView)findViewById(R.id.imageView21)}
         };
+        columnOne   = (Button)findViewById(R.id.columnOne);
+        columnTwo   = (Button)findViewById(R.id.columnTwo);
+        columnThree = (Button)findViewById(R.id.columnThree);
 
+        columnOne.setOnClickListener(this);
+        columnTwo.setOnClickListener(this);
+        columnThree.setOnClickListener(this);
         displayBoard();
 
 
@@ -60,17 +70,34 @@ public class MainActivity extends AppCompatActivity {
     private void displayBoard(){
         dealer.deal(board);
         Card[] c;
-        for(int i = 0; i<3; i++){
+        for(int i = 0; i < 3; i++){
             c = board.getColumn(i);
             for(int j = 0; j < 7; j++){
                 imageViews[i][j].setImageResource(c[j].getCardImage());
             }
         }
-        for(int i = 0; i<3; i++){
-            c = board.getColumn(i);
-            for(int j = 0; j < 7; j++){
-                Log.d("NAMES OF CARDS",c[j].getSuit()+":"+c[j].getFace());
-            }
+    }
+
+
+
+    @Override
+    public void onClick(View view) {
+
+
+        switch (view.getId()){
+            case R.id.columnOne :
+                dealer.pickUpCards(board,0);
+                break;
+            case R.id.columnTwo :
+                dealer.pickUpCards(board,1);
+                break;
+            case R.id.columnThree :
+                dealer.pickUpCards(board,2);
+                break;
+            default:
+                break;
         }
+        this.displayBoard();
+        //Toast.makeText(MainActivity.this,testText,Toast.LENGTH_SHORT).show();
     }
 }

@@ -25,7 +25,6 @@ public class Dealer {
 
     public void deal(Board board)
     {
-        
         int i = 0;
         while (!pickedUpCards.isEmpty())
         {
@@ -49,20 +48,20 @@ public class Dealer {
     {
         switch (columnSelected)
         {
-            case 1:
-                pickUpColumn(board,2);
+            case 0:
                 pickUpColumn(board,1);
-                pickUpColumn(board,3);
+                pickUpColumn(board,0);
+                pickUpColumn(board,2);
+                break;
+            case 1:
+                pickUpColumn(board,0);
+                pickUpColumn(board,1);
+                pickUpColumn(board,2);
                 break;
             case 2:
-                pickUpColumn(board,1);
+                pickUpColumn(board,0);
                 pickUpColumn(board,2);
-                pickUpColumn(board,3);
-                break;
-            case 3:
                 pickUpColumn(board,1);
-                pickUpColumn(board,3);
-                pickUpColumn(board,2);
                 break;
         }
     }

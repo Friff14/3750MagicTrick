@@ -8,6 +8,10 @@ public class Column {
     Card[] cards;
     int nextEmptySpot;
 
+    public void resetNextEmptySpot(){
+        nextEmptySpot = 0;
+    }
+
     public  Column(){
         cards = new Card[7];
         nextEmptySpot = 0;
