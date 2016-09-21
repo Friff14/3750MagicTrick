@@ -8,33 +8,38 @@ import java.util.Stack;
  */
 public class Dealer {
     private int dealNumber;
-    private Stack<Card> pickedUpCards;
+    private Stack<Card> hand;
     private Deck deck;
 
     public Dealer(){
         dealNumber = 0;
-        pickedUpCards = new Stack<>();
+        hand = new Stack<>();
         deck = new Deck();
         //deck.shuffle();
         ArrayList<Card> c = deck.random21();
         for (Card card : c)
         {
-            pickedUpCards.push(card);
+            hand.push(card);
         }
     }
 
     public void deal(Board board)
     {
         int i = 0;
-        while (!pickedUpCards.isEmpty())
+        while (!hand.isEmpty())
         {
-            board.addToColumn(i,pickedUpCards.pop());
+            board.addToColumn(i,hand.pop());
             i++;
 
             if (i>=3)
             {
                 i=0;
             }
+        }
+        dealNumber++;
+        if (dealNumber >= 3)
+        {
+            revealCard(board);
         }
     }
 
@@ -71,7 +76,7 @@ public class Dealer {
     {
         for(Card card: board.getColumn(id))
         {
-            pickedUpCards.add(card);
+            hand.add(card);
         }
     }
 }
