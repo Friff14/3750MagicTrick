@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
                         }
-                    }).create();
+                    }).setCancelable(false).create();
 
             dialog.show();
             return;
