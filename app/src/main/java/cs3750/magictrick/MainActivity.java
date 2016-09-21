@@ -3,7 +3,9 @@
  */
 package cs3750.magictrick;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         imageViews = new ImageView[][] {
             {(ImageView)findViewById(R.id.imageView1),(ImageView)findViewById(R.id.imageView2),
              (ImageView)findViewById(R.id.imageView3),(ImageView)findViewById(R.id.imageView4),
@@ -69,6 +72,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void displayBoard(){
         dealer.deal(board);
+        if(dealer.dealNumber == 4){
+            dealer.dealNumber = 0;
+            ImageView imageView = new ImageView(getApplicationContext());
+            imageView.setImageResource(dealer.revealCard(board).getCardImage());
+
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle("Is this your card?\n\n")
+                    .setView(imageView)
+                    .setPositiveButton("New Game", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dealer = new Dealer();
+                            board = new Board();
+                            displayBoard();
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    }).create();
+
+            dialog.show();
+            return;
+        }
         Card[] c;
         for(int i = 0; i < 3; i++){
             c = board.getColumn(i);

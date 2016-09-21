@@ -7,7 +7,7 @@ import java.util.Stack;
  * Created by sethalumps on 9/14/2016.
  */
 public class Dealer {
-    private int dealNumber;
+    public int dealNumber;
     private Stack<Card> hand;
     private Deck deck;
 
@@ -37,15 +37,11 @@ public class Dealer {
             }
         }
         dealNumber++;
-        if (dealNumber >= 3)
-        {
-            revealCard(board);
-        }
     }
 
     public Card revealCard(Board board)
     {
-        return board.getColumn(2)[4];
+        return board.getColumn(1)[3];
     }
 
     //Picks up the cards in board in the correct order for the trick
